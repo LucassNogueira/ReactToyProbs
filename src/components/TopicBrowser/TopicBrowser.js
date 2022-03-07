@@ -9,10 +9,10 @@ export default class TopicBrowser extends Component {
   render() {
     return (
       <div>
-        {/* <FilterObject />
+        <FilterObject />
         <FilterString />
         <Palindrome />
-        <Sum /> */}
+        <Sum />
         <EvenAndOdd />
       </div>
     );

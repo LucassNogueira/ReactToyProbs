@@ -30,8 +30,8 @@ export default class EvenAndOdd extends Component {
         <button className="confirmationButton" onClick={evaluate}>
           Evaluate
         </button>
-        <span className="resultsBox">{this.state.evenArray}</span>
-        <span className="resultsBox">{this.state.oddArray}</span>
+        <span className="resultsBox">Evens: {this.state.evenArray}</span>
+        <span className="resultsBox">Odds:{this.state.oddArray}</span>
       </div>
     );
   }
