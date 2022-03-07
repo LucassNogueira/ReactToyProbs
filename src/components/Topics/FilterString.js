@@ -30,7 +30,7 @@ export default class FilterString extends Component {
       <div className="puzzleBox filterStringPB">
         <h4>Filter String</h4>
         <span className="puzzleText">
-          {JSON.stringify(this.state.unFilteredArray)}
+          Stuff :{JSON.stringify(this.state.unFilteredArray)}
         </span>
         <input
           className="inputLine"
@@ -41,7 +41,7 @@ export default class FilterString extends Component {
           Is this name included?
         </button>
         <span className="resultsBox filterStringRB">
-          {JSON.stringify(this.state.filteredArray)}
+          Filtered Stuff:{JSON.stringify(this.state.filteredArray)}
         </span>
       </div>
     );
