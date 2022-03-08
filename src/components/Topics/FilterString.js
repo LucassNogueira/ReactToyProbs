@@ -24,9 +24,12 @@ export default class FilterString extends Component {
       let word = this.state.userInput;
       let names = this.state.unFilteredArray;
       let filtered = this.state.filteredArray;
-      if (names.includes(word)) {
-        filtered.push(word);
-      }
+      // if (names.includes(word)) {
+      //   filtered.push(word);
+      // }
+      names.forEach((el) =>
+        el.includes(word) ? filtered.push(el) : console.log("not included")
+      );
       this.setState(this.state);
     };
     return (
