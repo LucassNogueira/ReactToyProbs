@@ -8,25 +8,27 @@ export default class Palindrome extends Component {
       palindrome: "",
     };
   }
+  handleChange = (e) => {
+    this.setState({ userInput: e.target.value });
+  };
+  isPalin = (userInput) => {
+    let input = userInput.toLowerCase();
+    let revInput = input.split("").reverse().join("");
+    if (input === revInput) {
+      this.setState({ palindrome: true });
+    } else {
+      this.setState({ palindrome: false });
+    }
+  };
   render() {
-    const handleChange = (e) => {
-      this.setState({ userInput: e.target.value });
-    };
-    const isPalin = () => {
-      let input = this.state.userInput.toLowerCase();
-
-      let revInput = input.split("").reverse().join("");
-      if (input === revInput) {
-        this.setState({ palindrome: true });
-      } else {
-        this.setState({ palindrome: false });
-      }
-    };
     return (
       <div className="puzzleBox filterStringPB">
         <h4>Palindrome</h4>
-        <input className="inputLine" type="text" onChange={handleChange} />
-        <button className="confirmationButton" onClick={isPalin}>
+        <input className="inputLine" type="text" onChange={this.handleChange} />
+        <button
+          className="confirmationButton"
+          onClick={() => this.isPalin(this.state.userInput)}
+        >
           Does this read backwards and fowards?
         </button>
         <span className="resultsBox">{this.state.palindrome.toString()}</span>
