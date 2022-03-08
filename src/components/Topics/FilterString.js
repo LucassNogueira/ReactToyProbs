@@ -19,15 +19,11 @@ export default class FilterString extends Component {
   handleChange = (e) => {
     this.setState({ userInput: e.target.value });
   };
-  evaluate = () => {
-    let word = this.state.userInput;
+  evaluate = (userInput) => {
     let names = this.state.unFilteredArray;
     let filtered = [];
-    // if (names.includes(word)) {
-    //   filtered.push(word);
-    // }
     names.forEach((el) =>
-      el.includes(word) ? filtered.push(el) : console.log("not included")
+      el.includes(userInput) ? filtered.push(el) : console.log("not included")
     );
     return this.setState({ filteredArray: filtered });
   };
@@ -39,7 +35,10 @@ export default class FilterString extends Component {
           Stuff :{JSON.stringify(this.state.unFilteredArray)}
         </span>
         <input className="inputLine" type="text" onChange={this.handleChange} />
-        <button onClick={this.evaluate} className="confirmationButton">
+        <button
+          onClick={() => this.evaluate(this.state.userInput)}
+          className="confirmationButton"
+        >
           Is this name included?
         </button>
         <span className="resultsBox filterStringRB">
