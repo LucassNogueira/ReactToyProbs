@@ -13,22 +13,22 @@ export default class FilterObject extends Component {
       filteredArray: [],
     };
   }
+  handleChange = (e) => {
+    this.setState({ userInput: e.target.value });
+  };
+  filterObj = () => {
+    let word = this.state.userInput;
+    // console.log(typeof word)
+    let unArray = this.state.unFilteredArray;
+    let filtered = [];
+    unArray.map((obj) =>
+      obj.hasOwnProperty(word)
+        ? filtered.push(obj)
+        : console.log("No Property!")
+    );
+    this.setState({ filteredArray: filtered });
+  };
   render() {
-    const handleChange = (e) => {
-      this.setState({ userInput: e.target.value });
-    };
-    const filterObj = () => {
-      let word = this.state.userInput;
-      // console.log(typeof word)
-      let unArray = this.state.unFilteredArray;
-      unArray.map((obj) =>
-        obj.hasOwnProperty(word)
-          ? this.state.filteredArray.push(obj)
-          : this.state.unFilteredArray
-      );
-      this.setState(this.state);
-    };
-
     return (
       <div className="puzzleBox filterObjectPB">
         <h4>Filter Object</h4>
@@ -36,8 +36,8 @@ export default class FilterObject extends Component {
           Original:
           {JSON.stringify(this.state.unFilteredArray)}
         </span>
-        <input className="inputLine" type="text" onChange={handleChange} />
-        <button className="confirmationButton" onClick={filterObj}>
+        <input className="inputLine" type="text" onChange={this.handleChange} />
+        <button className="confirmationButton" onClick={this.filterObj}>
           Filter for them there props
         </button>
         <span className="resultsBox filterObjectRB">
