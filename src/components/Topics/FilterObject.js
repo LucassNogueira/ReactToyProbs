@@ -14,6 +14,9 @@ export default class FilterObject extends Component {
     };
   }
   render() {
+    const handleChange = (e) => {
+      this.setState({ userInput: e.target.value });
+    };
     const filterObj = () => {
       let word = this.state.userInput;
       // console.log(typeof word)
@@ -33,11 +36,7 @@ export default class FilterObject extends Component {
           Original:
           {JSON.stringify(this.state.unFilteredArray)}
         </span>
-        <input
-          className="inputLine"
-          type="text"
-          onChange={(e) => this.setState({ userInput: e.target.value })}
-        />
+        <input className="inputLine" type="text" onChange={handleChange} />
         <button className="confirmationButton" onClick={filterObj}>
           Filter for them there props
         </button>

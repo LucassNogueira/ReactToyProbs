@@ -17,6 +17,9 @@ export default class FilterString extends Component {
     };
   }
   render() {
+    const handleChange = (e) => {
+      this.setState({ userInput: e.target.value });
+    };
     const evaluate = () => {
       let word = this.state.userInput;
       let names = this.state.unFilteredArray;
@@ -32,11 +35,7 @@ export default class FilterString extends Component {
         <span className="puzzleText">
           Stuff :{JSON.stringify(this.state.unFilteredArray)}
         </span>
-        <input
-          className="inputLine"
-          type="text"
-          onChange={(e) => this.setState({ userInput: e.target.value })}
-        />
+        <input className="inputLine" type="text" onChange={handleChange} />
         <button onClick={evaluate} className="confirmationButton">
           Is this name included?
         </button>
